@@ -1,22 +1,29 @@
 <template lang="pug">
-  #nav(v-cloak)
-    header#header
-      nuxt-link(to="/",:class="$style.nav__spMenu")
-        img(src="@/assets/images/svg/logo.svg")
-    //- #nav__toggle
-    //-   menu-btn(:class="{ menu_btn: true, open_: menuFlag }" @click.native="menuToggle")
-    //-     transition
-    //-       .nav__spMenu(v-show="menuFlag":style="{ marginTop: headH }")
-    //-         .menu_wrap Menuだよ
-    aside#sidebar
-      nav#nav
+  div(:id="$style.header")
+    header(:id="$style.header")
+      nuxt-link(to="/",:class="$style.header__title")
+        ico_logo
+      //- #nav__toggle
+      //-   menu-btn(:class="{ menu_btn: true, open_: menuFlag }" @click.native="menuToggle")
+        //- transition
+        //-   .nav__spMenu(v-show="menuFlag":style="{ marginTop: headH }")
+        //-     .menu_wrap Menuだよ
+
+    aside(:id="$style.sidebar")
+      #nav(:class="$style.nav")
         ul(:class="$style.nav__list")
-          li(v-for="menuList of limitCount" :key="menuList.name",class="nav__item")
-            nuxt-link(:to="menuList.url",:class="$style.nav__item__link") ：{{ menuList.name }}
+          li(v-for="menuList of limitCount" :key="menuList.name",:class="$style.nav__item")
+            nuxt-link(:to="menuList.url",:class="$style.nav__item__link") {{ menuList.name }}
+        p(:class="$style.nav__sns")
+          a(href="https://twitter.com/yamanayama" target="_blank")
+            ico_twitter
 
 </template>
 
 <script>
+import ico_twitter from "@/assets/images/svg/ico_twitter.svg";
+import ico_logo from "@/assets/images/svg/logo.svg";
+
 //menuボタンコンポーネント
 const menuBtnComp = {
   template: `
@@ -52,13 +59,18 @@ const menuBtnComp = {
 // });
 
 export default {
+  components: {
+    ico_twitter,
+    ico_logo
+  },
+
   data: function() {
     return {
       menuList: [
         { url: "/", name: "home" },
-        { url: "/about", name: "about" },
-        { url: "/work", name: "work" },
-        { url: "/blog", name: "blog" }
+        { url: "about", name: "about" },
+        { url: "work", name: "work" },
+        { url: "blog", name: "blog" }
       ]
     };
   },
@@ -79,32 +91,81 @@ export default {
   list-style: none;
   padding: 0;
   background-color: #eee;
+  font-family: $fontFamilyEng200;
 
   li {
     display: inline-block;
-    padding: 5px;
+    padding: var(--space-sm);
   }
 }
 
-#nav {
-  position: sticky;
+#header {
+  position: fixed;
   top: 0;
-  color: #033560;
-  width: 260px;
-  text-align: center;
-  padding-top: 60px;
-  z-index: 100;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+
+  .header__title {
+    padding: 20px;
+
+    > svg {
+      width: 120px;
+      height: 40px;
+    }
+  }
+}
+
+.nav {
+  &__item {
+    font-family: $fontFamilyEng200;
+    font-weight: 400;
+    padding: 0 0 16px 0;
+    text-transform: capitalize;
+    line-height: 1;
+  }
+
+  &__sns {
+    width: 32px;
+    height: 32px;
+
+    circle {
+      fill: $bg100;
+    }
+
+    path {
+      fill: $bg200;
+    }
+  }
 }
 
 #sidebar {
-  font-size: 15px;
-  padding-top: 120px;
-  width: 260px;
-  height: 100%;
   position: fixed;
-  color: #033560;
+  top: 0;
+  background: $white;
+  color: $text100;
+  text-align: left;
+  z-index: 700;
+  font-size: 1.6rem;
+  letter-spacing: 0.05em;
+  height: 100%;
+}
 
-  text-align: center;
+@include md {
+  #header {
+  }
+
+  #sidebar {
+    padding: 32px 16px 24px;
+    width: 130px;
+    right: 0;
+    top: 70px;
+    height: auto;
+    border-radius: 4px 0 0 4px;
+    ul {
+      padding: 0;
+    }
+  }
 }
 
 #global-nav {

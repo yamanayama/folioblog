@@ -1,3 +1,5 @@
+// const StylelintPlugin = require('stylelint-webpack-plugin');
+
 export default {
   /*
   ** Headers of the page
@@ -13,20 +15,38 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
     script: [
-      { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js' }
-    ]
+      { src: 'https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.2/TweenMax.min.js' },
+      { //adobe fonts
+        innerHTML: `
+          (function(d) {
+            var config = {
+              kitId: 'slt8asq',
+              scriptTimeout: 3000,
+              async: true
+            },
+            h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+          })(document);
+        `
+      }
+    ],
+    __dangerouslyDisableSanitizers: ['script']
   },
   /*
   ** Customize the progress bar color
   */
   loading: { color: '#3B8070' },
   /*
-** Nuxt.js modules
-*/
-
+  ** Nuxt.js modules
+  */
   modules: [
     '@nuxtjs/style-resources',
-    'nuxt-svg-loader'
+    'nuxt-svg-loader',
+  ],
+
+  plugins: [
+    '~/plugins/vue-scrollto',
+    '~/plugins/vue-mq',
+    '~/plugins/scroll',
   ],
 
   css: [
@@ -38,7 +58,7 @@ export default {
     scss: [
       '@/assets/scss/config/_colors.scss',
       '@/assets/scss/config/_preset.scss',
-      '@/assets/scss/config/_variable.scss',
+      '@/assets/scss/config/_variables.scss',
       '@/assets/scss/config/_utility.scss'
     ],
   },
@@ -58,7 +78,16 @@ export default {
   /*
   ** Build configuration
   */
+
   build: {
+    postcss: {
+      plugins: {
+        'postcss-preset-env': {
+          // Doc: https://github.com/postcss/autoprefixer
+          autoprefixer: { grid: true }
+        },
+      },
+    },
     /*
     ** Run ESLint on save
     */
@@ -70,6 +99,12 @@ export default {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         });
+        // config.plugins.push(new StylelintPlugin({
+        //   files: [
+        //     '**/*.vue',
+        //     '**/*.scss',
+        //   ],
+        // }));
       }
     },
 

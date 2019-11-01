@@ -5,11 +5,22 @@
 ---------------------------------------------------------------------------------------------------------------------*/
 
 //img
-$imgPath:"../img/";
+$imgPath:"../assets/images/";
 
 //border-radius
 @mixin radius{
   border-radius: 4px;
+}
+
+@mixin secP{
+  padding: 32px 24px;
+   @include md {
+      padding: 64px 24px;
+   }
+}
+
+@mixin maxW{
+  max-width: 680px;
 }
 
 //card
@@ -27,6 +38,11 @@ $imgPath:"../img/";
   }
 }
 
+//inView
+@mixin inView{
+  opacity: 0;
+  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
+}
 
 //shadow
 .shadow, .shadowButton {
@@ -117,6 +133,13 @@ $imgPath:"../img/";
 		top: 50%;
 		transform: translateY(-50%);
 	}
+}
+
+//天地左右flex
+@mixin centerF{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 //テキストを折り返さない

@@ -1,23 +1,23 @@
 <template lang="pug">
-    //- form
-    #form.form
-        form#contact.netlify
-            .form__block
-                .form__head
-                    h2.form__title.title
-                        span contact
-                        | お問い合わせ
-                ul.form__list
-                    li.form__list__item
-                        input(type="text" name="name" placeholder="Name")
-                    li.form__list__item
-                        input(type="email" name="email" placeholder="Email")
-                    li.form__list__item
-                        textarea(type="text" name="message" placeholder="Message")
-                    li.form__list__item
-                        | お急ぎの方はtwitter,Facebookをご利用ください。
-                button#submit(type="submit")
-                    | 送信する
+  //- form
+  #form.form
+    form#contact.netlify
+      .form__block
+        .form__head
+          h2.form__title.title
+            span contact
+            | お問い合わせ
+        ul.form__list
+          li.form__list__item
+            input(type="text" name="name" placeholder="Name")
+          li.form__list__item
+            input(type="email" name="email" placeholder="Email")
+          li.form__list__item
+            textarea(type="text" name="message" placeholder="Message")
+          li.form__list__item
+            | お急ぎの方はtwitter,Facebookをご利用ください。
+        button#submit(type="submit")
+          | 送信する
 </template>
 
 

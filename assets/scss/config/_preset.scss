@@ -11,8 +11,9 @@
  *960px〜PC(小）
  *1140px〜PC（大）
 ------------*/
+$exlg: 1340px;
 $lg: 1140px;
-$md: 960px;
+$md: 1000px;
 $sm: 750px;
 $sp: 480px;
 
@@ -38,64 +39,4 @@ $sp: 480px;
 	@media (min-width: $sp) {
 		@content;
 	}
-}
-
-* {
-	box-sizing: border-box;
-}
-
-html {
-	font-size: 62.5%;
-	/* -> 10px; */
-}
-
-body {
-	margin: 0;
-	color: $text100;
-	text-align: left;
-	background-color: $white;
-	line-height: 1.75;
-	font-weight: 400;
-	font-size: #{$fontSizeBase}rem;
-	font-family: $fontFamilyBase;
-	font-style: normal;
-	overflow-x: hidden;
-	overflow-y: scroll;
-}
-
-//IE11
-@media all and (-ms-high-contrast:none) {
-
-	*::-ms-backdrop,
-	.tk-dnp-shuei-mgothic-std {
-		font-family: 'Meiryo', sans-serif !important;
-	}
-}
-
-a {
-	color: inherit;
-	cursor: pointer;
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: underline;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-	vertical-align: baseline;
-}
-
-input,
-textarea {
-	box-sizing: border-box;
-	appearance: none;
-	margin: 0;
-	padding: 0;
-	background: none;
-	border: none;
-	border-radius: 0;
-	outline: none;
-	max-width: 100%;
 }

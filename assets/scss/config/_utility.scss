@@ -4,32 +4,22 @@
 ---------------------------------------------------------------------------------------------------------------------*/
 /*	1.1 Spacing
 ---------------------------------------------------------------------------------------------------------------------*/
-//参考
-//https://coliss.com/articles/build-websites/operation/css/css-spacing-system-and-relative-units.html#h202
-
-:root {
-    /* spacing values */
-    --space-unit: 1em;
-    --space-xxxs: calc(0.25 * var(--space-unit));
-    --space-xxs:  calc(0.375 * var(--space-unit));
-    --space-xs:   calc(0.5 * var(--space-unit));
-    --space-sm:   calc(0.75 * var(--space-unit));
-    --space-md:   calc(1.25 * var(--space-unit));
-    --space-lg:   calc(2 * var(--space-unit));
-    --space-xl:   calc(3.25 * var(--space-unit));
-    --space-xxl:  calc(5.25 * var(--space-unit));
-    --space-xxxl: calc(8.5 * var(--space-unit));
-
-    /* components padding */
-    --component-padding: var(--space-sm);
+.wrapper{
+    &__large{
+        padding: 0 24px;
+    }
 }
 
-// optional - edit space unit and padding of all components at a specific breakpoint
-@include md {
-    :root {
-        --space-unit: 1.25em;
-        --component-padding: var(--space-md);
+ @include md {
+    .wrapper{
+        &__large{
+            padding: 0 48px;
+        }
     }
+}
+
+.maxWidth{
+    max-width: $exlg;
 }
 
 /*	1.2 Margin

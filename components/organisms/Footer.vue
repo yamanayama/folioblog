@@ -1,8 +1,8 @@
 <template lang="pug">
-  footer(:class="$style.footer")
+  footer.wrapper__large(:class="$style.footer")
     footer-logo
     p(:class="$style.copyright") &copy;
-      | naomoon 2017-2018
+      | naomoon
 </template>
 
 <script>
@@ -20,8 +20,10 @@ export default {
 .footer {
   width: 100%;
   height: auto;
-  margin: 90px auto 110px;
   text-align: center;
+  background: $bg200;
+  padding: 40px 0;
+  color: $white;
 }
 
 .copyright {
