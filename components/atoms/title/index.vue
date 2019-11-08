@@ -14,11 +14,13 @@ export default {
 .title {
   font-family: $fontFamilyEng200;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 0.02em;
   position: relative;
+  line-height: 1;
+  margin-bottom: 1.6rem;
 
   &::after {
     content: "";
@@ -37,7 +39,7 @@ export default {
 @include md {
   .title {
     font-size: 8rem;
-    margin-bottom: 20px;
+    margin-bottom: 3.2rem;
   }
 }
 </style>

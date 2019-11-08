@@ -16,6 +16,7 @@
 	box-sizing: border-box;
 }
 
+
 html {
   visibility: hidden;
 	font-size: 62.5%;
@@ -252,11 +253,19 @@ label {
 
 button {
   border-radius: 0;
+  background: none;
+	border: none;
+	outline: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+  appearance: none;
+  outline: none;
 }
 
 button:focus {
   outline: 1px dotted;
   outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 input,

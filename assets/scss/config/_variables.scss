@@ -9,7 +9,7 @@ $imgPath:"../assets/images/";
 
 //border-radius
 @mixin radius{
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 @mixin secP{
@@ -21,6 +21,12 @@ $imgPath:"../assets/images/";
 
 @mixin maxW{
   max-width: 680px;
+}
+
+//SP横幅一括
+@mixin sp96{
+  width: 96%;
+  margin: auto;
 }
 
 //card

@@ -8,8 +8,10 @@
 ---------------------------------------------------------------------------------------------------------------------*/
   /* ベースカラー */
   $primary: #ea7c68;
-  $secondary: #f79d1e;
-  $key: #2f989a;
+  // $primary:#e44121;
+  $key: #f79d1e;
+  $secondary: #abd1be;
+  $secondaryDark: darken($secondary,20%);
   $success: #088312;
   $warning: #e6e200;
   $white: #FDFDFD;
@@ -49,6 +51,7 @@ $fontFamilyEng100: mina, serif;
   /* 無彩色(若い番号から使用頻度高) */
   // $bg500: ,
   // $bg400: ,
-  $bg300: #F8F8F8;
+  $bgOVR :rgba(107, 103, 94, 0.3);
+  $bg300:#d7d4c5;
   $bg200: #221f1f;
   $bg100: #efecd9;

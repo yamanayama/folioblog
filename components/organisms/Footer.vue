@@ -1,5 +1,5 @@
 <template lang="pug">
-  footer.wrapper__large(:class="$style.footer")
+  footer(:class="$style.footer")
     footer-logo
     p(:class="$style.copyright") &copy;
       | naomoon
